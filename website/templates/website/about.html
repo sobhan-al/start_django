@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>درباره ما - فروشگاه من</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7ff;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            height: 70px;
+            background: linear-gradient(90deg, #5b21b6, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .menu a:hover {
+            color: #dbeafe;
+        }
+
+        /* About */
+        .about {
+            min-height: calc(100vh - 140px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .about-box {
+            max-width: 800px;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+            text-align: center;
+        }
+
+        .about-box h1 {
+            color: #4c1d95;
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .about-box h2 {
+            color: #2563eb;
+            margin: 25px 0 15px;
+        }
+
+        .about-box p {
+            color: #555;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            flex: 1;
+            padding: 20px;
+            background: #eef2ff;
+            border-radius: 12px;
+        }
+
+        .feature h3 {
+            color: #5b21b6;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            height: 70px;
+            background: #312e81;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .menu {
+                gap: 12px;
+            }
+
+            .menu a {
+                font-size: 14px;
+            }
+
+            .about-box {
+                padding: 30px 20px;
+            }
+
+            .about-box h1 {
+                font-size: 30px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+
+        <div class="logo">
+            🛍️ فروشگاه من
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="index">خانه</a>
+            </li>
+
+            <li>
+                <a href="index">محصولات</a>
+            </li>
+
+            <li>
+                <a href="about">درباره ما</a>
+            </li>
+
+            <li>
+                <a href="contact">تماس با ما</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- About Section -->
+    <section class="about">
+
+        <div class="about-box">
+
+            <h1>درباره فروشگاه ما</h1>
+
+            <p>
+                به فروشگاه ما خوش آمدید.
+                ما یک فروشگاه اینترنتی مدرن هستیم که تلاش می‌کنیم
+                محصولات باکیفیت را با قیمت مناسب در اختیار مشتریان
+                قرار دهیم.
+            </p>
+
+            <h2>هدف ما</h2>
+
+            <p>
+                هدف ما ایجاد یک تجربه خرید ساده، سریع و مطمئن برای
+                مشتریان است. ما همیشه تلاش می‌کنیم کیفیت محصولات و
+                رضایت مشتریان را در اولویت قرار دهیم.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    <h3>⭐ کیفیت</h3>
+                    <p>
+                        ارائه محصولات باکیفیت و قابل اعتماد.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>🚀 سرعت</h3>
+                    <p>
+                        تلاش برای ارائه خدمات سریع و مناسب.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>❤️ رضایت</h3>
+                    <p>
+                        رضایت مشتری مهم‌ترین هدف ماست.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 تمامی حقوق برای فروشگاه من محفوظ است.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

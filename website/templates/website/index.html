@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>فروشگاه من</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7ff;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            background: linear-gradient(90deg, #5b21b6, #2563eb);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #dbeafe;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 400px;
+            background: linear-gradient(135deg, #6d28d9, #2563eb);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: white;
+            color: #5b21b6;
+            padding: 13px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e0e7ff;
+        }
+
+        /* Products */
+        .products {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .products h2 {
+            color: #4c1d95;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.15);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            height: 150px;
+            background: linear-gradient(135deg, #ddd6fe, #bfdbfe);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            color: #312e81;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #5b21b6;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #5b21b6, #2563eb);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        /* About */
+        .about {
+            background: white;
+            padding: 60px 12%;
+            text-align: center;
+        }
+
+        .about h2,
+        .contact h2 {
+            color: #4c1d95;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            line-height: 2;
+            color: #555;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 60px 12%;
+            text-align: center;
+            background: #eef2ff;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            color: #444;
+        }
+
+        /* Footer */
+        footer {
+            background: #312e81;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .menu {
+                gap: 12px;
+            }
+
+            .menu a {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">🛍️ فروشگاه من</div>
+
+        <ul class="menu">
+            <li><a href="index">خانه</a></li>
+            <li><a href="">محصولات</a></li>
+            <li><a href="about">درباره ما</a></li>
+            <li><a href="contact">تماس با ما</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Home -->
+    <section class="hero" id="home">
+
+        <h1>به فروشگاه ما خوش آمدید</h1>
+
+        <p>
+            بهترین محصولات را با کیفیت عالی و قیمت مناسب پیدا کنید.
+        </p>
+
+        <a href="#products" class="btn">
+            مشاهده محصولات
+        </a>
+
+    </section>
+
+
+    <!-- Products -->
+    <section class="products" id="products">
+
+        <h2>محصولات محبوب</h2>
+
+        <div class="product-container">
+
+            <div class="product">
+                <div class="product-image">🎧</div>
+
+                <h3>هدفون بی‌سیم</h3>
+
+                <p>
+                    هدفون با کیفیت بالا و طراحی زیبا.
+                </p>
+
+                <div class="price">۱,۵۰۰,۰۰۰ تومان</div>
+
+                <a href="#" class="buy-btn">
+                    خرید محصول
+                </a>
+            </div>
+
+
+            <div class="product">
+                <div class="product-image">⌚</div>
+
+                <h3>ساعت هوشمند</h3>
+
+                <p>
+                    ساعت هوشمند با امکانات متنوع و کاربردی.
+                </p>
+
+                <div class="price">۲,۲۰۰,۰۰۰ تومان</div>
+
+                <a href="#" class="buy-btn">
+                    خرید محصول
+                </a>
+            </div>
+
+
+            <div class="product">
+                <div class="product-image">📱</div>
+
+                <h3>گوشی هوشمند</h3>
+
+                <p>
+                    گوشی مدرن با طراحی زیبا و عملکرد قدرتمند.
+                </p>
+
+                <div class="price">۱۵,۰۰۰,۰۰۰ تومان</div>
+
+                <a href="#" class="buy-btn">
+                    خرید محصول
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>درباره ما</h2>
+
+        <p>
+            ما یک فروشگاه اینترنتی ساده و مدرن هستیم که تلاش می‌کنیم
+            محصولات باکیفیت را با قیمت مناسب در اختیار مشتریان قرار دهیم.
+            رضایت شما مهم‌ترین هدف ماست.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>تماس با ما</h2>
+
+        <p>📧 ایمیل: info@example.com</p>
+
+        <p>📞 تلفن: 09123456789</p>
+
+        <p>📍 آدرس: تهران، خیابان اصلی</p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 تمامی حقوق برای فروشگاه من محفوظ است.
+        </p>
+
+    </footer>
+
+</body>
+</html>
