@@ -1,361 +1,358 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>فروشگاه من</title>
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Vazirmatn", sans-serif;
-        }
-
-        body {
-            background: #f5f7ff;
-            color: #222;
-        }
-
-        /* Navbar */
-        nav {
-            background: linear-gradient(90deg, #5b21b6, #2563eb);
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 8%;
-            color: white;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 17px;
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            color: #dbeafe;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 400px;
-            background: linear-gradient(135deg, #6d28d9, #2563eb);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero h1 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            background: white;
-            color: #5b21b6;
-            padding: 13px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #e0e7ff;
-        }
-
-        /* Products */
-        .products {
-            padding: 60px 8%;
-            text-align: center;
-        }
-
-        .products h2 {
-            color: #4c1d95;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
-
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.15);
-            transition: 0.3s;
-        }
-
-        .product:hover {
-            transform: translateY(-8px);
-        }
-
-        .product-image {
-            height: 150px;
-            background: linear-gradient(135deg, #ddd6fe, #bfdbfe);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 55px;
-            margin-bottom: 20px;
-        }
-
-        .product h3 {
-            color: #312e81;
-            margin-bottom: 10px;
-        }
-
-        .product p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            color: #5b21b6;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .buy-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #5b21b6, #2563eb);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 20px;
-            text-decoration: none;
-        }
-
-        /* About */
-        .about {
-            background: white;
-            padding: 60px 12%;
-            text-align: center;
-        }
-
-        .about h2,
-        .contact h2 {
-            color: #4c1d95;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            line-height: 2;
-            color: #555;
-        }
-
-        /* Contact */
-        .contact {
-            padding: 60px 12%;
-            text-align: center;
-            background: #eef2ff;
-        }
-
-        .contact p {
-            margin: 10px 0;
-            color: #444;
-        }
-
-        /* Footer */
-        footer {
-            background: #312e81;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-
-            nav {
-                padding: 0 5%;
-            }
-
-            .menu {
-                gap: 12px;
-            }
-
-            .menu a {
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .product-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">🛍️ فروشگاه من</div>
-
-        <ul class="menu">
-            <li><a href="index">خانه</a></li>
-            <li><a href="">محصولات</a></li>
-            <li><a href="about">درباره ما</a></li>
-            <li><a href="contact">تماس با ما</a></li>
-        </ul>
-    </nav>
-
-
-    <!-- Home -->
-    <section class="hero" id="home">
-
-        <h1>به فروشگاه ما خوش آمدید</h1>
-
-        <p>
-            بهترین محصولات را با کیفیت عالی و قیمت مناسب پیدا کنید.
-        </p>
-
-        <a href="#products" class="btn">
-            مشاهده محصولات
-        </a>
-
-    </section>
-
-
-    <!-- Products -->
-    <section class="products" id="products">
-
-        <h2>محصولات محبوب</h2>
-
-        <div class="product-container">
-
-            <div class="product">
-                <div class="product-image">🎧</div>
-
-                <h3>هدفون بی‌سیم</h3>
-
-                <p>
-                    هدفون با کیفیت بالا و طراحی زیبا.
-                </p>
-
-                <div class="price">۱,۵۰۰,۰۰۰ تومان</div>
-
-                <a href="#" class="buy-btn">
-                    خرید محصول
-                </a>
-            </div>
-
-
-            <div class="product">
-                <div class="product-image">⌚</div>
-
-                <h3>ساعت هوشمند</h3>
-
-                <p>
-                    ساعت هوشمند با امکانات متنوع و کاربردی.
-                </p>
-
-                <div class="price">۲,۲۰۰,۰۰۰ تومان</div>
-
-                <a href="#" class="buy-btn">
-                    خرید محصول
-                </a>
-            </div>
-
-
-            <div class="product">
-                <div class="product-image">📱</div>
-
-                <h3>گوشی هوشمند</h3>
-
-                <p>
-                    گوشی مدرن با طراحی زیبا و عملکرد قدرتمند.
-                </p>
-
-                <div class="price">۱۵,۰۰۰,۰۰۰ تومان</div>
-
-                <a href="#" class="buy-btn">
-                    خرید محصول
-                </a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- About -->
-    <section class="about" id="about">
-
-        <h2>درباره ما</h2>
-
-        <p>
-            ما یک فروشگاه اینترنتی ساده و مدرن هستیم که تلاش می‌کنیم
-            محصولات باکیفیت را با قیمت مناسب در اختیار مشتریان قرار دهیم.
-            رضایت شما مهم‌ترین هدف ماست.
-        </p>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-
-        <h2>تماس با ما</h2>
-
-        <p>📧 ایمیل: info@example.com</p>
-
-        <p>📞 تلفن: 09123456789</p>
-
-        <p>📍 آدرس: تهران، خیابان اصلی</p>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 تمامی حقوق برای فروشگاه من محفوظ است.
-        </p>
-
-    </footer>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+	<!-- start banner Area -->
+	<section class="banner-area relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row fullscreen align-items-center justify-content-between">
+				<div class="col-lg-6 col-md-6 banner-left">
+					<h6 class="text-white">Away from monotonous life</h6>
+					<h1 class="text-white">Magical Travel</h1>
+					<p class="text-white">
+						If you are looking at blank cassettes on the web, you may be very confused at the difference in
+						price. You may see some for as low as $.17 each.
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<!-- Start popular-destination Area -->
+	<section class="popular-destination-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-70 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">Popular Destinations</h1>
+						<p>We all live in an age that belongs to the young at heart. Life that is becoming extremely
+							fast, day.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="{% static 'img/d1.jpg' %}" alt="">
+						</div>
+						<div class="desc">
+							<a href="#" class="price-btn">$150</a>
+							<h4>Mountain River</h4>
+							<p>Paraguay</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="{% static 'img/d2.jpg' %}" alt="">
+						</div>
+						<div class="desc">
+							<a href="#" class="price-btn">$250</a>
+							<h4>Dream City</h4>
+							<p>Paris</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
+						</div>
+						<div class="desc">
+							<a href="#" class="price-btn">$350</a>
+							<h4>Cloud Mountain</h4>
+							<p>Sri Lanka</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End popular-destination Area -->
+
+
+	<!-- Start other-issue Area -->
+	<section class="other-issue-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-70 col-lg-9">
+					<div class="title text-center">
+						<h1 class="mb-10">Other issues we can help you with</h1>
+						<p>We all live in an age that belongs to the young at heart. Life that is.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/o1.jpg' %}" alt="">
+						</div>
+						<a href="#">
+							<h4>Rent a Car</h4>
+						</a>
+						<p>
+							The preservation of human life is the ultimate value, a pillar of ethics and the foundation.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/o2.jpg' %}" alt="">
+						</div>
+						<a href="#">
+							<h4>Cruise Booking</h4>
+						</a>
+						<p>
+							I was always somebody who felt quite sorry for myself, what I had not got compared.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/o3.jpg' %}" alt="">
+						</div>
+						<a href="#">
+							<h4>To Do List</h4>
+						</a>
+						<p>
+							The following article covers a topic that has recently moved to center stage–at least it
+							seems.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/o4.jpg' %}" alt="">
+						</div>
+						<a href="#">
+							<h4>Food Features</h4>
+						</a>
+						<p>
+							There are many kinds of narratives and organizing principles. Science is driven by evidence.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End other-issue Area -->
+
+
+
+
+
+	<!-- Start home-about Area -->
+	<section class="home-about-area">
+		<div class="container-fluid">
+			<div class="row align-items-center justify-content-end">
+				<div class="col-lg-6 col-md-12 home-about-left">
+					<h1>
+						Did not find your Package? <br>
+						Feel free to ask us. <br>
+						We‘ll make it for you
+					</h1>
+					<p>
+						inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
+						standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
+						the job is beyond reproach. inappropriate behavior is often laughed.
+					</p>
+					<a href="#" class="primary-btn text-uppercase">request custom price</a>
+				</div>
+				<div class="col-lg-6 col-md-12 home-about-right no-padding">
+					<img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End home-about Area -->
+
+
+	<!-- Start blog Area -->
+	<section class="recent-blog-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-60 col-lg-9">
+					<div class="title text-center">
+						<h1 class="mb-10">Latest from Our Blog</h1>
+						<p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as
+							has.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="active-recent-blog-carusel">
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">Low Cost Advertising</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">Creative Outdoor Ads</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">It's Classified How To Utilize Free</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">Low Cost Advertising</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">Creative Outdoor Ads</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<li>
+										<a href="#">Travel</a>
+									</li>
+									<li>
+										<a href="#">Life Style</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#">
+								<h4 class="title">It's Classified How To Utilize Free</h4>
+							</a>
+							<p>
+								Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
+								farmer.
+							</p>
+							<h6 class="date">31st January,2018</h6>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End recent-blog Area -->
+
+{% endblock %}
