@@ -16,8 +16,8 @@
 						Blog Details Page
 					</h1>
 					<p class="text-white link-nav"><a href="index.html">Home </a> <span
-							class="lnr lnr-arrow-right"></span><a href="blog-home.html">Blog </a> <span
-							class="lnr lnr-arrow-right"></span> <a href="blog-single.html"> Blog Details Page</a></p>
+							class="lnr lnr-arrow-right"></span><a href="{% url 'blog:index' %}">Blog </a> <span
+							class="lnr lnr-arrow-right"></span> <a href="{% url 'blog:single' %}"> Blog Details Page</a></p>
 				</div>
 			</div>
 		</div>
@@ -308,7 +308,7 @@
 										<img class="img-fluid" src="{% static 'img/blog/pp1.jpg' %}" alt="">
 									</div>
 									<div class="details">
-										<a href="blog-single.html">
+										<a href="{% url 'blog:single' %}">
 											<h6>Space The Final Frontier</h6>
 										</a>
 										<p>02 Hours ago</p>
@@ -319,7 +319,7 @@
 										<img class="img-fluid" src="{% static 'img/blog/pp2.jpg' %}" alt="">
 									</div>
 									<div class="details">
-										<a href="blog-single.html">
+										<a href="{% url 'blog:single' %}">
 											<h6>The Amazing Hubble</h6>
 										</a>
 										<p>02 Hours ago</p>
@@ -330,7 +330,7 @@
 										<img class="img-fluid" src="{% static 'img/blog/pp3.jpg' %}" alt="">
 									</div>
 									<div class="details">
-										<a href="blog-single.html">
+										<a href="{% url 'blog:single' %}">
 											<h6>Astronomy Or Astrology</h6>
 										</a>
 										<p>02 Hours ago</p>
@@ -341,7 +341,7 @@
 										<img class="img-fluid" src="{% static 'img/blog/pp4.jpg' %}" alt="">
 									</div>
 									<div class="details">
-										<a href="blog-single.html">
+										<a href="{% url 'blog:single' %}">
 											<h6>Asteroids telescope</h6>
 										</a>
 										<p>02 Hours ago</p>
