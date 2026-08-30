@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<div class="single-sidebar-widget popular-post-widget">
+    <h4 class="popular-title">Popular Posts</h4>
+    <div class="popular-post-list">
+            {% for obj in posts %}
+            <div class="single-post-list d-flex flex-row align-items-center">
+                <div class="thumb">
+                    <img class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;" src="{{obj.image.url}}" alt="">
+                </div>
+                <div class="details">
+                    <a href="{% url 'blog:single' pid=obj.id %}">
+                        <h6>{{obj.title}}</h6>
+                    </a>
+                    <p>{{obj.counted_views}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        
+    </div>
+</div>

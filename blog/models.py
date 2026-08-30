@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=255,unique=True)
+    related_name='posts'
     def __str__(self):
         return self.name
 
