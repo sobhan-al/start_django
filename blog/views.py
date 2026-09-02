@@ -7,12 +7,10 @@ from blog.models import Post, Category
 def blog_view(request):
 
     posts = Post.objects.all()
-    categoryss = Category.objects.all()
 
-    for category in categoryss:
-        category.post_count = Post.objects.filter(
-            categorys=category
-        ).count()
+    categoryss = Category.objects.annotate(
+        post_count=Count('posts')
+    ).order_by('-post_count')
 
     context = {
         'posts': posts,
@@ -26,12 +24,10 @@ def blog_single(request, pid):
     post = get_object_or_404(Post, pk=pid)
 
     posts = Post.objects.all()
-    categoryss = Category.objects.all()
 
-    for category in categoryss:
-        category.post_count = Post.objects.filter(
-            categorys=category
-        ).count()
+    categoryss = Category.objects.annotate(
+        post_count=Count('posts')
+    ).order_by('-post_count')
 
     context = {
         'post': post,
