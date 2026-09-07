@@ -4,32 +4,27 @@ from django.db.models import Count
 from blog.models import Post, Category
 
 
-def blog_view(request):
-
+def blog_view(request,name=None,author_username=None):
     posts = Post.objects.filter(status=1)
-    categoryss = Category.objects.all()
-
+    if author_username:
+        posts = posts.filter(author__username=author_username)
+    if name:
+        posts = posts.filter(categorys__name=name)
     context = {
         'posts': posts,
-        'categoryss': categoryss,
     }
 
     return render(request, 'blog/blog-home.html', context)
 
 def blog_single(request, pid):
-
     post = get_object_or_404(Post, pk=pid)
-
-    posts = Post.objects.filter(status=1)
-    categoryss = Category.objects.all()
 
     context = {
         'post': post,
-        'posts': posts,
-        'categoryss': categoryss,
     }
 
     return render(request, 'blog/blog-single.html', context)
+
 
 
 
