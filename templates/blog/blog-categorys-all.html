@@ -1,15 +1,15 @@
 {% load static %}
-
+{% load blog_tags %}
 
 <div class="single-sidebar-widget post-category-widget">
     <h4 class="category-title">Post Catgories</h4>
     <ul class="cat-list">
 
-        {%for cat in categoryss %}
+        {% for cat,count in categoryies.items %}
             <li>
                 <a href="#" class="d-flex justify-content-between">
-                    <p>{{ cat.name }}</p>
-                    <p>{{ cat.post_count }}</p>
+                    <p>{{cat}}</p>
+                    <p>{{count}}</p>
                 </a>
             </li>
         {% endfor %}    
