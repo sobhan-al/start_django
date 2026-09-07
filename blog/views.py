@@ -7,9 +7,10 @@ from blog.models import Post, Category
 def blog_view(request):
 
     posts = Post.objects.all()
+    categoryss = Category.objects.all()
 
     categoryss = Category.objects.annotate(
-        post_count=Count('posts')
+        post_count=Count('post')
     ).order_by('-post_count')
 
     context = {
@@ -24,9 +25,10 @@ def blog_single(request, pid):
     post = get_object_or_404(Post, pk=pid)
 
     posts = Post.objects.all()
+    categoryss = Category.objects.all()
 
     categoryss = Category.objects.annotate(
-        post_count=Count('posts')
+        post_count=Count('post')
     ).order_by('-post_count')
 
     context = {
@@ -36,3 +38,11 @@ def blog_single(request, pid):
     }
 
     return render(request, 'blog/blog-single.html', context)
+
+
+
+def test(request):
+    posts = Post.objects.all()
+    categoryss = Category.objects.all()
+    context = {'categoryss':categoryss,'posts':posts}
+    return render(request,'test.html',context)

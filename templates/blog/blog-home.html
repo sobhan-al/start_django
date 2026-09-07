@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load blog_tags %}
 
 
 {% block content %}
@@ -158,7 +158,7 @@
 
 						{% include 'blog/blog-writer.html' %}
 						
-                        {% include 'blog/blog-popular-post.html' %}
+                        {% popularposts %}
 
 						{% include 'blog/blog-ads.html' %}
 						
