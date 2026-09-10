@@ -12,7 +12,6 @@ class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
-    #tag
     categorys = models.ManyToManyField(Category)
     counted_views = models.PositiveIntegerField(default=0)
     status = models.BooleanField(default=False)
@@ -20,7 +19,7 @@ class Post(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     publish_date = models.DateTimeField(null=True)
 
-
+    
     class Meta:
         ordering = ['created_date']
 

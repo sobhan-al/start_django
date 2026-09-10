@@ -15,7 +15,7 @@
 						Contact Us
 					</h1>
 					<p class="text-white link-nav"><a href="{% url 'website:index' %}">Home </a> <span
-							class="lnr lnr-arrow-right"></span> <a href="{% url 'website:contact' %}"> Contact Us</a></p>
+							class="lnr lnr-arrow-right"></span>Contact Us</p>
 				</div>
 			</div>
 		</div>
@@ -59,8 +59,10 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<form class="form-area contact-form text-right" id="myForm" action="mail.php" method="post">
+					<form class="form-area contact-form text-right" action="{% url 'website:contact' %}" method="post">
+						{% csrf_token %}
 						<div class="row">
+							
 							<div class="col-lg-6 form-group">
 								<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Enter your name'"
@@ -80,12 +82,43 @@
 									placeholder="Enter Messege" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
 							</div>
+							
 							<div class="col-lg-12">
-								<div class="alert-msg" style="text-align: left;"></div>
-								<button class="genric-btn primary" style="float: right;">Send Message</button>
+								<div class="alert-msg" style="text-align: left;">
+									{% if messages %}
+										{% for message in messages %}
+											{% if message|safe == 'email sended!' %}
+											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}">{{message|safe}}</div>
+											{% else %}
+											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" style="color: red;" >{{message|safe}}</div>
+											{% endif %}
+										{% endfor %}	
+									{% endif %}
+
+									{% if form.error %}
+											<div class="alert alert-error">
+												<h4>Please fix the following error</h4>
+												<ul>
+													{% for field in form %}
+														{% if field.errors %}
+															{% for error in field.errors %}
+																<li><a href="#id-{{field.name}}" class="error">{{ error|escape }}</a></li>
+															{% endfor %}
+														{% endif %}
+													{% endfor %}			
+												</ul>
+												{% if form.non_field_errors %}
+													{{fprm.non_field_errors}}
+												{% endif %}	
+											</div>
+									{% endif %}	
+								</div>
+								<button class="genric-btn primary" style="float: right;" type="submit">Send Message</button>
 							</div>
 						</div>
+						
 					</form>
+					
 				</div>
 			</div>
 		</div>
