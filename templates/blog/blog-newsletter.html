@@ -7,17 +7,40 @@
         giving them a second thought.
     </p>
     <div class="form-group d-flex flex-row">
-        <div class="col-autos">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+        <form 
+                action="{% url 'blog:newsletter' %}"
+                method="post" class="subscription relative">
+        {% csrf_token %}
+        
+            <div class="col-autos">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
                     </div>
+
+                    
+
+                    <input name="email" type="email" class="form-control" id="inlineFormInputGroup" placeholder="Enter email"
+                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+
+                    <button class="bbtns" type="submit">Subcribe</button>    
+                    {% if messages %}
+						{% for message in messages %}
+                            {% if "blog_ema_input" in message.tags %}	
+                                {% if message|safe == 'email receive!' %}	
+                                    <div class="alert {% if message.level_tag == 'success' %} alert-success {% endif %}" style="color: rgb(0, 255, 60);">{{message|safe}}</div>
+                                {% elif message|safe == 'email did not received!' %}
+                                    <div class="alert {% if message.level_tag %} alert-{{message.level_tag}}{% endif %}" style="color: red;" >{{message|safe}}</div>
+                                {% endif %}
+                            {% endif %} 
+						{% endfor %}					
+					{% endif %}
+
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email"
-                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
             </div>
-        </div>
-        <a href="#" class="bbtns">Subcribe</a>
+            <!-- <a href="#" class="bbtns">Subcribe</a> -->
+        </form>
     </div>
     <p class="text-bottom">
         You can unsubscribe at any time

@@ -1,8 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
+from django.http import HttpResponseRedirect,JsonResponse
 from django.db.models import Q
 from blog.models import Post, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from website.forms import NewsletterForm
+from django.contrib import messages
+
 
 def blog_view(request,name=None,author_username=None):
     posts = Post.objects.filter(status=1)
@@ -47,6 +51,20 @@ def blog_search(request):
     return render(request, 'blog/blog-home.html', context)
 
 
+def blog_newsletter_view(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()            
+            messages.add_message(request,messages.SUCCESS,'email receive!', extra_tags="blog_ema_input")
+            return HttpResponseRedirect('/')
+
+        else:
+            messages.add_message(request,messages.ERROR,'email did not received!', extra_tags="blog_ema_input")
+            return HttpResponseRedirect('/')
+
+
+    return render(request,'blog/blog-newsletter.html',{'form':form})
 
 def test(request):
     posts = Post.objects.all()

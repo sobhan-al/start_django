@@ -87,11 +87,13 @@
 								<div class="alert-msg" style="text-align: left;">
 									{% if messages %}
 										{% for message in messages %}
-											{% if message|safe == 'your ticket submited' %}
-											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}">{{message|safe}}</div>
-											{% else %}
-											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" style="color: red;" >{{message|safe}}</div>
-											{% endif %}
+											{% if "contact_input" in message.tags %}
+												{% if message|safe == 'your ticket submited' %}
+												<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}">{{message|safe}}</div>
+												{% else %}
+												<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" style="color: red;" >{{message|safe}}</div>
+												{% endif %}
+											{% endif %}	
 										{% endfor %}	
 									{% endif %}
 

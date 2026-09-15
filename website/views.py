@@ -24,7 +24,7 @@ def contact_view(request):
             name = hashlib.sha256(name.encode()).hexdigest()
             form.instance.name = name
             form.save()
-            messages.add_message(request,messages.SUCCESS,'your ticket submited')
+            messages.add_message(request,messages.SUCCESS,'your ticket submited', extra_tags="contact_input")
         # else:
             # messages.add_message(request,messages.ERROR,'your ticket denied')
 
@@ -35,10 +35,10 @@ def newsletter_view(request):
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()            
-            messages.add_message(request,messages.SUCCESS,'email receive!')
+            messages.add_message(request,messages.SUCCESS,'email receive!', extra_tags="email_input")
             return HttpResponseRedirect('/')
         else:
-            messages.add_message(request,messages.ERROR,'email did not received!')
+            messages.add_message(request,messages.ERROR,'email did not received!', extra_tags="email_input")
             return HttpResponseRedirect('/')
 
     return render(request,'base.html',{'form':form})
