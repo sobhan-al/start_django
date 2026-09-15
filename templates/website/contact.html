@@ -75,7 +75,7 @@
 
 								<input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
-									required="" type="text">
+									type="text">
 							</div>
 							<div class="col-lg-6 form-group">
 								<textarea class="common-textarea form-control" name="message"
@@ -87,7 +87,7 @@
 								<div class="alert-msg" style="text-align: left;">
 									{% if messages %}
 										{% for message in messages %}
-											{% if message|safe == 'email sended!' %}
+											{% if message|safe == 'your ticket submited' %}
 											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}">{{message|safe}}</div>
 											{% else %}
 											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" style="color: red;" >{{message|safe}}</div>
@@ -95,20 +95,22 @@
 										{% endfor %}	
 									{% endif %}
 
-									{% if form.error %}
+									{% if form.errors %}
 											<div class="alert alert-error">
-												<h4>Please fix the following error</h4>
+												<!-- <h4>Please fix the following error</h4> -->
 												<ul>
 													{% for field in form %}
 														{% if field.errors %}
+															<li><p class="error" style="color: red;">in {{field.name}} field</p></li>
+
 															{% for error in field.errors %}
-																<li><a href="#id-{{field.name}}" class="error">{{ error|escape }}</a></li>
+																<li><p class="error" style="color: red;">{{ error|escape }}</p></li>
 															{% endfor %}
 														{% endif %}
 													{% endfor %}			
 												</ul>
 												{% if form.non_field_errors %}
-													{{fprm.non_field_errors}}
+													{{form.non_field_errors}}
 												{% endif %}	
 											</div>
 									{% endif %}	

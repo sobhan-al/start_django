@@ -147,9 +147,9 @@
                                     <button class="btn bb-btn" type="submit"><span class="lnr lnr-location"></span></button>
                                     {% if messages %}
 										{% for message in messages %}
-											{% if message|safe == 'email sended!' %}
+											{% if message|safe == 'email receive!' %}
 											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}">{{message|safe}}</div>
-											{% else %}
+											{% elif message|safe == 'email did not received!' %}
 											<div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" style="color: red;" >{{message|safe}}</div>
 											{% endif %}
 										{% endfor %}	
