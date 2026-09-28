@@ -25,12 +25,14 @@ def contact_view(request):
             form.instance.name = name
             form.save()
             messages.add_message(request,messages.SUCCESS,'your ticket submited', extra_tags="contact_input")
+            return HttpResponseRedirect(request.path)
         # else:
             # messages.add_message(request,messages.ERROR,'your ticket denied')
 
     return render(request,'website/contact.html',{'form':form})
 
 def newsletter_view(request):
+    form = NewsletterForm()
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid():

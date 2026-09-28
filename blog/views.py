@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
 from django.http import HttpResponseRedirect,JsonResponse
 from django.db.models import Q
-from blog.models import Post, Category
+from blog.models import Post, Category, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from website.forms import NewsletterForm
 from django.contrib import messages
-
+from blog.forms import CommentForm
 
 def blog_view(request,name=None,author_username=None):
     posts = Post.objects.filter(status=1)
@@ -31,10 +31,21 @@ def blog_view(request,name=None,author_username=None):
     return render(request, 'blog/blog-home.html', context)
 
 def blog_single(request, pid):
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()            
+            messages.add_message(request,messages.SUCCESS,'Message sent. If your message is approved, you will be able to see it in the comments.', extra_tags="comment_input")
+            return HttpResponseRedirect(request.path)
+        else:
+            messages.add_message(request,messages.ERROR,'message did not received!', extra_tags="comment_input")
+
     post = get_object_or_404(Post, pk=pid)
+    comments = Comment.objects.filter(post=post.id,approved=True).order_by('-created_date')
 
     context = {
-        'post': post,
+        'post': post, 'comments':comments, 'form':form
     }
 
     return render(request, 'blog/blog-single.html', context)
