@@ -1,0 +1,252 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <style>
+        /* Login page */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+            background: #faf7f2;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            background: #fffdf9;
+            border: 1px solid #eee4d7;
+            border-radius: 18px;
+            box-shadow: 0 16px 45px rgba(61, 45, 31, 0.08);
+        }
+
+        .login-icon {
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #f5eadb;
+            color: #9b6843;
+            font-size: 27px;
+        }
+
+        .login-title {
+            margin-bottom: 12px;
+            color: #292722;
+            text-align: center;
+            font-size: 1.7rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .login-description {
+            margin-bottom: 30px;
+            color: #82776d;
+            text-align: center;
+            font-size: 0.96rem;
+            line-height: 1.8;
+        }
+
+        .login-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #493f35;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .login-input {
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #e8ded2;
+            border-radius: 10px;
+            background: #fff;
+            color: #292722;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.93rem;
+        }
+
+        .login-input::placeholder {
+            color: #aaa096;
+        }
+
+        .login-input:focus {
+            border-color: #b28a68;
+            box-shadow: 0 0 0 3px rgba(178, 138, 104, 0.13);
+        }
+
+        .login-link {
+            color: #8b6243;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            color: #5b402d;
+            text-decoration: underline;
+        }
+
+        .login-button {
+            padding: 12px 16px;
+            border: 1px solid #72523b;
+            border-radius: 10px;
+            background: #72523b;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .login-button:hover {
+            border-color: #5b402d;
+            background: #5b402d;
+            color: #fff;
+        }
+
+        .login-footer {
+            margin-top: 26px;
+            color: #82776d;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 575.98px) {
+            .login-page {
+                padding: 20px 14px;
+            }
+
+            .login-card {
+                padding: 30px 22px;
+                border-radius: 16px;
+            }
+
+            .login-title {
+                font-size: 1.5rem;
+            }
+
+            .login-description {
+                font-size: 0.92rem;
+            }
+        }
+                .login-card form,
+        .login-card form .mb-3,
+        .login-card form .mb-2 {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .login-card .login-input {
+            display: block;
+            width: 100% !important;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+</style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+
+            <div class="login-icon">
+                <span aria-hidden="true">↗</span>
+            </div>
+
+            <h1 class="login-title">Welcome Back</h1>
+
+            <p class="login-description">
+                Log in to continue reading and sharing your stories.
+            </p>
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger small rounded-3">
+                    {% for error in form.non_field_errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}"
+                        value="{{ redirect_field_value }}">
+                {% endif %}
+
+                <div class="mb-3">
+                    <label for="id_login" class="login-label">
+                        Username or Email
+                    </label>
+
+                    <input
+                        type="text"
+                        name="login"
+                        id="id_login"
+                        class="form-control login-input w-100"
+                        placeholder="Enter your username or email"
+                        autocomplete="username"
+                        value="{{ form.login.value|default_if_none:'' }}"
+                        required
+                    >
+
+                    {% for error in form.login.errors %}
+                        <div class="text-danger small mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-2">
+                    <label for="id_password" class="login-label">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="id_password"
+                        class="form-control login-input w-100"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    {% for error in form.password.errors %}
+                        <div class="text-danger small mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="text-end mb-4">
+                    <a href="{% url 'account_reset_password' %}"
+                    class="login-link">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <button type="submit" class="btn login-button w-100">
+                    Log In
+                </button>
+            </form>
+
+            <div class="login-footer">
+                Don't have an account?
+                <a href="{% url 'account_signup' %}" class="login-link">
+                    Sign Up
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
