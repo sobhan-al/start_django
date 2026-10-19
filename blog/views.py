@@ -31,6 +31,8 @@ def blog_view(request,name=None,author_username=None):
     return render(request, 'blog/blog-home.html', context)
 
 def blog_single(request, pid):
+    posts = Post.objects.filter(status=1)
+
     form = CommentForm()
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -44,8 +46,11 @@ def blog_single(request, pid):
     post = get_object_or_404(Post, pk=pid)
     comments = Comment.objects.filter(post=post.id,approved=True).order_by('-created_date')
 
+    previous_post = Post.objects.filter(id__lt=post.id).order_by('-id').first()
+    next_post = Post.objects.filter(id__gt=post.id).order_by('id').first()
+
     context = {
-        'post': post, 'comments':comments, 'form':form
+        'post': post, 'comments':comments, 'form':form, 'previous_post':previous_post, 'next_post':next_post
     }
 
     return render(request, 'blog/blog-single.html', context)
