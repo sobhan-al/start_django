@@ -6,12 +6,14 @@
     <ul class="cat-list">
 
         {% for cat,count in categoryies.items %}
+            {% if count > 0 %}
             <li>
-                <a href="{% url 'blog:categories' name=cat.name %}" class="d-flex justify-content-between">
-                    <p>{{cat}}</p>
-                    <p>{{count}}</p>
-                </a>
+                    <a href="{% url 'blog:categories' name=cat.name %}" class="d-flex justify-content-between">
+                        <p>{{cat}}</p>
+                        <p>{{count}}</p>
+                    </a>  
             </li>
+            {% endif %}  
         {% endfor %}    
 
     </ul>

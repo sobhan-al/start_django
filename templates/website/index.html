@@ -219,7 +219,7 @@
 								<h4 class="title">{{post.title}}</h4>
 							</a>
 							<p>
-								{{ post.content|slide_contents}}
+								{{ post.content|slide_contents|safe}}
 							</p>
 							<h6 class="date">{{post.publish_date|date:"d M Y"}}</h6>
 						</div>
