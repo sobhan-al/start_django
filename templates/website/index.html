@@ -12,11 +12,10 @@
 		<div class="container">
 			<div class="row fullscreen align-items-center justify-content-between">
 				<div class="col-lg-6 col-md-6 banner-left">
-					<h6 class="text-white">Away from monotonous life</h6>
-					<h1 class="text-white">Magical Travel</h1>
+					<h6 class="text-white"></h6>
+					<h1 class="text-white">Magical Blog</h1>
 					<p class="text-white">
-						If you are looking at blank cassettes on the web, you may be very confused at the difference in
-						price. You may see some for as low as $.17 each.
+						Every day brings a new world to discover. From inspiring ideas to captivating stories, we’re here to help you see things differently and explore more.
 					</p>
 
 				</div>
@@ -32,9 +31,8 @@
 			<div class="row d-flex justify-content-center">
 				<div class="menu-content pb-70 col-lg-8">
 					<div class="title text-center">
-						<h1 class="mb-10">Popular Destinations</h1>
-						<p>We all live in an age that belongs to the young at heart. Life that is becoming extremely
-							fast, day.</p>
+						<h1 class="mb-10">Explore Our Blog</h1>
+						<p>Discover fresh ideas, useful tips, and stories worth reading.</p>
 					</div>
 				</div>
 			</div>
@@ -46,9 +44,9 @@
 							<img class="img-fluid" src="{% static 'img/d1.jpg' %}" alt="">
 						</div>
 						<div class="desc">
-							<a href="#" class="price-btn">$150</a>
-							<h4>Mountain River</h4>
-							<p>Paraguay</p>
+							<a href="{% url 'blog:index' %}" class="price-btn">take a look</a>
+							<h4>Latest Articles</h4>
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -59,9 +57,9 @@
 							<img class="img-fluid" src="{% static 'img/d2.jpg' %}" alt="">
 						</div>
 						<div class="desc">
-							<a href="#" class="price-btn">$250</a>
-							<h4>Dream City</h4>
-							<p>Paris</p>
+							<a href="{% url 'blog:index' %}" class="price-btn">take a look</a>
+							<h4>Tips & Guides</h4>
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -72,9 +70,9 @@
 							<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
 						</div>
 						<div class="desc">
-							<a href="#" class="price-btn">$350</a>
-							<h4>Cloud Mountain</h4>
-							<p>Sri Lanka</p>
+							<a href="{% url 'blog:index' %}" class="price-btn">take a look</a>
+							<h4>Popular Posts</h4>
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -90,8 +88,8 @@
 			<div class="row d-flex justify-content-center">
 				<div class="menu-content pb-70 col-lg-9">
 					<div class="title text-center">
-						<h1 class="mb-10">Other issues we can help you with</h1>
-						<p>We all live in an age that belongs to the young at heart. Life that is.</p>
+						<h1 class="mb-10">Explore Our Categories</h1>
+						<p>Discover interesting topics, fresh ideas, and stories for every interest.</p>
 					</div>
 				</div>
 			</div>
@@ -99,40 +97,41 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="single-other-issue">
 						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/peo2.jpg' %}" alt="">
+						</div>
+						<a href="{% url 'blog:categories' name='programming' %}">
+							<h4>Technology & Innovation</h4>
+						</a>
+						<p>
+							Explore new ideas that are shaping our digital world.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
+							<img class="img-fluid" src="{% static 'img/dddd22.jpg' %}" alt="">
+						</div>
+						<a href="{% url 'blog:categories' name='book' %}">
+							<h4>Lifestyle & Personal Growth</h4>
+						</a>
+						<p>
+							Find inspiration to improve your daily life and habits.
+							Learn simple ways to grow, stay motivated, and achieve your goals.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="single-other-issue">
+						<div class="thumb">
 							<img class="img-fluid" src="{% static 'img/o1.jpg' %}" alt="">
 						</div>
-						<a href="#">
-							<h4>Rent a Car</h4>
+						<a href="{% url 'blog:categories' name='trip' %}">
+							<h4>Travel & Adventure</h4>
 						</a>
 						<p>
-							The preservation of human life is the ultimate value, a pillar of ethics and the foundation.
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-other-issue">
-						<div class="thumb">
-							<img class="img-fluid" src="{% static 'img/o2.jpg' %}" alt="">
-						</div>
-						<a href="#">
-							<h4>Cruise Booking</h4>
-						</a>
-						<p>
-							I was always somebody who felt quite sorry for myself, what I had not got compared.
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="single-other-issue">
-						<div class="thumb">
-							<img class="img-fluid" src="{% static 'img/o3.jpg' %}" alt="">
-						</div>
-						<a href="#">
-							<h4>To Do List</h4>
-						</a>
-						<p>
-							The following article covers a topic that has recently moved to center stage–at least it
-							seems.
+							Discover beautiful places and unforgettable travel experiences.
+							Get inspired to explore new destinations and cultures.
 						</p>
 					</div>
 				</div>
@@ -141,11 +140,12 @@
 						<div class="thumb">
 							<img class="img-fluid" src="{% static 'img/o4.jpg' %}" alt="">
 						</div>
-						<a href="#">
+						<a href="{% url 'blog:categories' name='food' %}">
 							<h4>Food Features</h4>
 						</a>
 						<p>
-							There are many kinds of narratives and organizing principles. Science is driven by evidence.
+							Explore delicious recipes and discover new flavors.
+							Find easy cooking tips and ideas for your next meal.
 						</p>
 					</div>
 				</div>
@@ -164,22 +164,22 @@
 			<div class="row align-items-center justify-content-end">
 				<div class="col-lg-6 col-md-12 home-about-left">
 					<h1>
-						Did not find your Package? <br>
-						Feel free to ask us. <br>
-						We‘ll make it for you
+						Got Something to Share?<br>
+						Your Next Story Starts Here! <br>
 					</h1>
 					<p>
-						inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-						standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
-						the job is beyond reproach. inappropriate behavior is often laughed.
+						A little idea, a personal story,
+						 or something you’ve always wanted to share? We’d love to hear it!
+						  Turn your thoughts into a post, share what inspires you, and let your words connect with people who care.
+						   Who knows? Your next post might be someone’s favorite read.
 					</p>
-					<a href="#" class="primary-btn text-uppercase">request custom price</a>
+					<a href="{% url 'account_login' %}" class="primary-btn text-uppercase">create something wonderful</a>
 				</div>
 				<div class="col-lg-6 col-md-12 home-about-right no-padding">
 					<img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt="">
 				</div>
 			</div>
-		</div>
+		</div>c
 	</section>
 	<!-- End home-about Area -->
 
