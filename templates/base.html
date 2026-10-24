@@ -34,92 +34,12 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
-    <style>
-                    
-        
 
-        .logout-modal {
-            background: #fffdf9;
-            border: 1px solid #eee4d7;
-            border-radius: 18px;
-            box-shadow: 0 16px 45px rgba(61, 45, 31, 0.14);
-        }
-
-        .logout-symbol {
-            width: 54px;
-            height: 54px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f5eadb;
-            color: #9b6843;
-            font-size: 27px;
-        }
-
-        .logout-title {
-            color: #292722;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .logout-description {
-            color: #82776d;
-            font-size: 0.98rem;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .logout-modal,
-        .logout-modal button {
-            font-family: 'Lato', sans-serif;
-        }
-
-        .btn-logout {
-            background: #72523b;
-            color: #fff;
-            border: 1px solid #72523b;
-            border-radius: 10px;
-            padding: 11px 16px;
-        }
-
-        .btn-logout:hover {
-            background: #5b402d;
-            color: #fff;
-        }
-
-        .btn-stay {
-            background: transparent;
-            color: #786c60;
-            border: 1px solid #e8ded2;
-            border-radius: 10px;
-            padding: 11px 16px;
-        }
-
-        .btn-stay:hover {
-            background: #f7f0e7;
-            color: #493626;
-        }
-
-        @media (max-width: 575.98px) {
-            #logoutModal .modal-dialog {
-                margin: 16px;
-            }
-
-            .logout-modal .modal-body {
-                padding: 28px 22px !important;
-            }
-
-            .logout-description {
-                font-size: 0.93rem;
-            }
-        }
-
-    </style>
 </head>
 
-<!-- #popup -->
+
+<!-- #logout-popup -->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -146,7 +66,7 @@
         </p>
 
         <div class="d-grid gap-2">
-          <form method="post" action="{% url 'account_logout' %}">
+          <form method="post" action="{% url 'account_logout' %}?next={{request.path}}">
             {% csrf_token %}
             <button type="submit" class="btn btn-logout w-100">
               Yes, log me out
@@ -166,6 +86,37 @@
 </div>
 
 
+<!-- welcome-popup -->
+
+
+{% if messages %}
+  {% for message in messages %}
+    {% if 'welcome-popup' in message.tags %}
+
+      <div class="welcome-popup"
+           role="status"
+           aria-live="polite">
+
+        <div class="welcome-symbol" aria-hidden="true">
+          ✓
+        </div>
+
+        <div class="welcome-content">
+          <h5 class="welcome-title">
+            Welcome, {{ request.user.first_name|default:request.user.username }}!
+          </h5>
+
+          <p class="welcome-description">
+            We're glad to have you here.
+            Enjoy your time!
+          </p>
+        </div>
+
+      </div>
+
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 <body>
     <header id="header">
@@ -187,8 +138,8 @@
                             
                             
                             {% else %}
-                            <li><a href="{% url 'account_login' %}">login</a></li>
-                            <li><a href="{% url 'account_signup' %}">signup</a></li>
+                            <li><a href="{% url 'account_login' %}?next={{request.path}}">login</a></li>
+                            <li><a href="{% url 'account_signup' %}?next={{request.path}}">signup</a></li>
                             {% endif %}
                         </ul>
                     </div>

@@ -95,7 +95,7 @@
 
         {% else %}
 
-        <a class="primary-btn text-uppercase" href="{% url 'account_login' %}">Post Comment</a>
+        <a class="primary-btn text-uppercase" href="{% url 'account_login' %}?next={{request.path}}">Post Comment</a>
 
         {% endif %}
     </form>

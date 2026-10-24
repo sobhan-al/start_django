@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from website.forms import NewsletterForm
 from django.contrib import messages
 from blog.forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 def blog_view(request,name=None,author_username=None):
     posts = Post.objects.filter(status=1)
@@ -23,7 +24,8 @@ def blog_view(request,name=None,author_username=None):
         posts = posts.get_page(1)
     except EmptyPage:
         posts = posts.page(posts.num_pages)
-            
+
+    
     context = {
         'posts': posts,
     }
