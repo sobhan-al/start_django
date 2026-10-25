@@ -2,6 +2,25 @@ $(document).ready(function() {
     "use strict";
 
 
+    document.querySelectorAll('.scroll-btn').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const targetId = this.dataset.target;
+            const target = document.getElementById(targetId);
+
+            if (target) {
+                const top = target.getBoundingClientRect().top + window.scrollY - 150;
+
+                window.scrollTo({
+                    top: top,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+
     var window_width = $(window).width(),
         window_height = window.innerHeight,
         header_height = $(".default-header").height(),
@@ -396,3 +415,4 @@ $(document).ready(function() {
     });
 
 });
+

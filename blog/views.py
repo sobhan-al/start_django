@@ -1,22 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Count
-from django.http import HttpResponseRedirect,JsonResponse
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 from blog.models import Post, Category, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from website.forms import NewsletterForm
 from django.contrib import messages
 from blog.forms import CommentForm
-from django.contrib.auth.decorators import login_required
 
 def blog_view(request,name=None,author_username=None):
-    posts = Post.objects.filter(status=1)
+    posts = Post.objects.filter(status=1).order_by('-id')
     if author_username:
         posts = posts.filter(author__username=author_username)
     if name:
         posts = posts.filter(categorys__name=name)
 
-    posts = Paginator(posts,3)
+    posts = Paginator(posts,4)
     try:
         page_number = request.GET.get('page')
         posts = posts.get_page(page_number)
@@ -24,7 +22,6 @@ def blog_view(request,name=None,author_username=None):
         posts = posts.get_page(1)
     except EmptyPage:
         posts = posts.page(posts.num_pages)
-
     
     context = {
         'posts': posts,

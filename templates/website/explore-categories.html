@@ -1,0 +1,74 @@
+{% load static %}
+
+
+<!-- Explore Our Categories -->
+<section class="other-issue-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10">Explore Our Categories</h1>
+                    <p>Discover interesting topics, fresh ideas, and stories for every interest.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-other-issue">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/peo2.jpg' %}" alt="">
+                    </div>
+                    <a href="{% url 'blog:categories' name='programming' %}">
+                        <h4>Technology & Innovation</h4>
+                    </a>
+                    <p>
+                        Explore new ideas that are shaping our digital world.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-other-issue">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/dddd22.jpg' %}" alt="">
+                    </div>
+                    <a href="{% url 'blog:categories' name='book' %}">
+                        <h4>Lifestyle & Personal Growth</h4>
+                    </a>
+                    <p>
+                        Find inspiration to improve your daily life and habits.
+                        Learn simple ways to grow, stay motivated, and achieve your goals.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-other-issue">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/o1.jpg' %}" alt="">
+                    </div>
+                    <a href="{% url 'blog:categories' name='trip' %}">
+                        <h4>Travel & Adventure</h4>
+                    </a>
+                    <p>
+                        Discover beautiful places and unforgettable travel experiences.
+                        Get inspired to explore new destinations and cultures.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-other-issue">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/o4.jpg' %}" alt="">
+                    </div>
+                    <a href="{% url 'blog:categories' name='food' %}">
+                        <h4>Food Features</h4>
+                    </a>
+                    <p>
+                        Explore delicious recipes and discover new flavors.
+                        Find easy cooking tips and ideas for your next meal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Explore Our Categories -->

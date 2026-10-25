@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,JsonResponse
 from blog.models import Post
-from .models import Contact,Newsletter
 from website.forms import ContactForm,NewsletterForm
 from django.contrib import messages
 import hashlib

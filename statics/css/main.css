@@ -4551,6 +4551,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #f8b600;
 }
 
+.scroll-btn {
+    cursor: pointer;
+}
+
+.blog-categories {
+    scroll-margin-top: 100px;
+}
+
 
 
 /* #logout-popup */
