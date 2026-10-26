@@ -44,3 +44,10 @@ urlpatterns = [
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+handler400 = 'sbsite.error_views.error_400'
+handler403 = 'sbsite.error_views.error_403'
+handler404 = 'sbsite.error_views.error_404'
+handler500 = 'sbsite.error_views.error_500'
+

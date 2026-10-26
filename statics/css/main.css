@@ -4756,3 +4756,75 @@ body.mobile-nav-active #mobile-nav-toggle {
     animation-duration: 0.01ms;
   }
 }
+
+
+
+.error-404-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.error-404-title {
+  font-size: clamp(18px, 2.2vw, 25px);
+  font-weight: 500;
+  color: #171717;
+  margin-bottom: 65px;
+  line-height: 1.6;
+}
+
+
+.error-404-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.error-404-description {
+  margin-top: 35px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #777;
+}
+
+.error-404-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 11px 25px;
+  background-color: #72523b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.error-404-button:hover {
+  background-color: #5b402d;
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .error-404-page {
+      min-height: 70vh;
+      padding: 30px 15px;
+  }
+
+  .error-404-title {
+      margin-bottom: 40px;
+  }
+
+  .error-404-image {
+      width: 100%;
+  }
+
+  .error-404-description {
+      font-size: 14px;
+  }
+}

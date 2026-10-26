@@ -3,8 +3,10 @@ from sbsite.settings import *
 SECRET_KEY = 'django-insecure-rs@#%w@$0o+@3hmz0@cc_#r8r)y^dl4(ddg%c^$x)yle%jta94'
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+]
 
 INSTALLED_APPS = [
     'multi_captcha_admin',
