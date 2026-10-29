@@ -101,7 +101,13 @@
 						  Turn your thoughts into a post, share what inspires you, and let your words connect with people who care.
 						   Who knows? Your next post might be someone’s favorite read.
 					</p>
-					<a href="{% url 'account_login' %}" class="primary-btn text-uppercase">create something wonderful</a>
+
+					{% if user.is_authenticated %}
+						<a href="{% url 'blog:index' %}" class="primary-btn text-uppercase">create something wonderful</a>
+					{% else %}
+						<a href="{% url 'account_login' %}" class="primary-btn text-uppercase">create something wonderful</a>
+					{% endif %}
+
 				</div>
 				<div class="col-lg-6 col-md-12 home-about-right no-padding">
 					<img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt="">

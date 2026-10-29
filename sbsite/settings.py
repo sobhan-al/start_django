@@ -181,4 +181,6 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['username*', 'email*', 'password1*', 'password2*']
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True

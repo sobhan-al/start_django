@@ -1,6 +1,6 @@
 
 
-SECRET_KEY = 'django-insecure-rs@#%w@$0o+@3hmz0@cc_#r8r)y^dl4(ddg%c^$x)yle%jta94'
+# SECRET_KEY = ''
 DEBUG = False
 
 ALLOWED_HOSTS = []
@@ -37,3 +37,8 @@ INSTALLED_APPS = [
 
 # STATIC_ROOT = BASE_DIR / 'static'
 # MEDIA_ROOT = BASE_DIR / 'media'
+
+
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_CONTENT_TYPE_NOSNIFF = True

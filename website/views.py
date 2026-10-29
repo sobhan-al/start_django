@@ -44,5 +44,5 @@ def newsletter_view(request):
 
     return render(request,'base.html',{'form':form})
 
-def elements_view(request):
-    return render(request,'website/elements.html')
+def test_view(request):
+    return render(request,'test.html')

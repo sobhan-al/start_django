@@ -1,6 +1,6 @@
 from sbsite.settings import *
 
-SECRET_KEY = 'django-insecure-rs@#%w@$0o+@3hmz0@cc_#r8r)y^dl4(ddg%c^$x)yle%jta94'
+SECRET_KEY = '@#%popkm;nlkjn987yhnkjnkbdbzdtfhzdthndcfgw@$0o+@3hmz0@cc_#r8r)y^dl4(ddg%c^$x)yle%jta94'
 DEBUG = True
 
 ALLOWED_HOSTS = [

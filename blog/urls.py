@@ -12,5 +12,4 @@ urlpatterns = [
     path('newsletter',blog_newsletter_view,name='newsletter'),
     path('search/', blog_search, name='search'),
     path("rss/feed/", LatestEntriesFeed()),
-    path('test',test)
 ]

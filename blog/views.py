@@ -80,9 +80,3 @@ def blog_newsletter_view(request):
 
 
     return render(request,'blog/blog-newsletter.html',{'form':form})
-
-def test(request):
-    posts = Post.objects.all()
-    categoryss = Category.objects.all()
-    context = {'categoryss':categoryss,'posts':posts}
-    return render(request,'test.html',context)
